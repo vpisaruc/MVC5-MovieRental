@@ -65,3 +65,10 @@ D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddNameToMembers
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddBirthDateToCustomer.resources
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddColumnsToMovie.resources
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddMovieClassToMigrations.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddMovieGenresTable.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\AutoMapper.dll
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\AutoMapper.xml
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddNewMovieTable.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.RenameColumnMoviesTable.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddMoviesTable.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.ChangesInMovieTable.resources

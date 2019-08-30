@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+using AutoMapper;
 
 namespace Vidly.Controllers
 {
@@ -22,7 +26,7 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-            var movies = _context.Movies.ToList();
+            var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
 
             return View(movies);    
         }
@@ -38,24 +42,55 @@ namespace Vidly.Controllers
         }
 
 
-        /*
-        // GET: Movies/Random
-        public ActionResult Random()
+        public ActionResult New()
         {
-            var movie = new Movie() { Name = "Shrek!" };
-            var customers = new List<Customer>
+            var movieGenre = _context.MovieGenres.ToList();
+            var viewModel = new MovieFormViewModel()
             {
-                new Customer { Name = "Customer 1" },
-                new Customer { Name = "Customer 2" }
+                MovieGenres = movieGenre
             };
 
-            var viewModel = new RandomMovieViewModel
+            return View("MovieForm", viewModel);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            var viewModel = new MovieFormViewModel()
             {
                 Movie = movie,
-                Customers = customers
+                MovieGenres = _context.MovieGenres.ToList()
             };
 
-            return View(viewModel);
-        }*/
+            return View("MovieForm", viewModel);
+        }
+
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                movie.DateAdded = DateTime.Now;
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                //Mapper.Map(movie, movieInDb);
+                movieInDb.Name = movie.Name;
+                movieInDb.MovieGenreId = movie.MovieGenreId;
+                movieInDb.NumberInStock = movie.NumberInStock;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movies");
+        }
     }
 }

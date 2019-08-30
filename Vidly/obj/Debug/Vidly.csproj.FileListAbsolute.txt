@@ -55,3 +55,13 @@ D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.csproj.CoreCompileInputs.ca
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.csproj.CopyComplete
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.dll
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.pdb
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.InitialModel.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.csproj.GenerateResource.cache
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddIsSubscribedToCustomer.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddMembershipType.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.PopulateMembershipType.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.ApplyAnnotationToCustommerName.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddNameToMembershipType.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddBirthDateToCustomer.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddColumnsToMovie.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddMovieClassToMigrations.resources

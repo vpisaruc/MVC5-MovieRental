@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -166,10 +168,48 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908301027228_InitialModel.cs" />
+    <Compile Include="Migrations\201908301027228_InitialModel.Designer.cs">
+      <DependentUpon>201908301027228_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301039549_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\201908301039549_AddIsSubscribedToCustomer.Designer.cs">
+      <DependentUpon>201908301039549_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301044201_AddMembershipType.cs" />
+    <Compile Include="Migrations\201908301044201_AddMembershipType.Designer.cs">
+      <DependentUpon>201908301044201_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301046165_PopulateMembershipType.cs" />
+    <Compile Include="Migrations\201908301046165_PopulateMembershipType.Designer.cs">
+      <DependentUpon>201908301046165_PopulateMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301054367_ApplyAnnotationToCustommerName.cs" />
+    <Compile Include="Migrations\201908301054367_ApplyAnnotationToCustommerName.Designer.cs">
+      <DependentUpon>201908301054367_ApplyAnnotationToCustommerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301155183_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\201908301155183_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>201908301155183_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301203509_AddBirthDateToCustomer.cs" />
+    <Compile Include="Migrations\201908301203509_AddBirthDateToCustomer.Designer.cs">
+      <DependentUpon>201908301203509_AddBirthDateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301236038_AddColumnsToMovie.cs" />
+    <Compile Include="Migrations\201908301236038_AddColumnsToMovie.Designer.cs">
+      <DependentUpon>201908301236038_AddColumnsToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301239224_AddMovieClassToMigrations.cs" />
+    <Compile Include="Migrations\201908301239224_AddMovieClassToMigrations.Designer.cs">
+      <DependentUpon>201908301239224_AddMovieClassToMigrations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -232,7 +272,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Movies\Random.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <None Include="Views\Customers\Details.cshtml" />
     <None Include="Views\Customers\Index.cshtml" />
@@ -247,6 +287,35 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201908301027228_InitialModel.resx">
+      <DependentUpon>201908301027228_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301039549_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>201908301039549_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301044201_AddMembershipType.resx">
+      <DependentUpon>201908301044201_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301046165_PopulateMembershipType.resx">
+      <DependentUpon>201908301046165_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301054367_ApplyAnnotationToCustommerName.resx">
+      <DependentUpon>201908301054367_ApplyAnnotationToCustommerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301155183_AddNameToMembershipType.resx">
+      <DependentUpon>201908301155183_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301203509_AddBirthDateToCustomer.resx">
+      <DependentUpon>201908301203509_AddBirthDateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301236038_AddColumnsToMovie.resx">
+      <DependentUpon>201908301236038_AddColumnsToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301239224_AddMovieClassToMigrations.resx">
+      <DependentUpon>201908301239224_AddMovieClassToMigrations.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

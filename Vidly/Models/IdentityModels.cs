@@ -20,6 +20,10 @@ namespace Vidly.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        // чтобы наши сущности появились в виде таблиц в бд
+        public DbSet<Customer> Customers { get; set; }  
+        public DbSet<Movie> Movies{ get; set; }  
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

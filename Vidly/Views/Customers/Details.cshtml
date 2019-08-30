@@ -1,4 +1,11 @@
-﻿@model Vidly.Models.Customer
+﻿@*
+Это вся htmlka которая открывается когда мы кликаем на клента
+@ используется для вставки C# кода
+
+*@
+
+@using Microsoft.Ajax.Utilities
+@model Vidly.Models.Customer
 
 @{
     ViewBag.Title = Model.Name;
@@ -6,3 +13,11 @@
 }
 
 <h2>@Model.Name</h2>
+<ul>
+    <li>Membership Type: @Model.MembershipType.Name</li>
+    @if (Model.BirthDate != null)
+    {
+        <li>Birthdate: @Model.BirthDate.ToShortDateString()</li>
+    }
+
+</ul>

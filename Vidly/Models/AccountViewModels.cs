@@ -65,6 +65,15 @@ namespace Vidly.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Driving License")]
+        public string DrivingLicense { get; set; }
+
+        [Required]
+        [Display(Name = "Phone Number")]
+        [StringLength(15, ErrorMessage = "Phone number must be less then 15 characters.", MinimumLength = 7)]
+        public string PhoneNumber { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -83,6 +92,12 @@ namespace Vidly.Models
 
     public class ResetPasswordViewModel
     {
+        [Required]
+        [Display(Name = "Phone Number")]
+        [StringLength(15, ErrorMessage = "Phone number must be less then 15 characters.", MinimumLength = 7)]
+        public string PhoneNumber { get; set; }
+
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

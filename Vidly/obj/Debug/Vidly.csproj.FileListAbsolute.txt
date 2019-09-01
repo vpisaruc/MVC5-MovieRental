@@ -79,3 +79,6 @@ D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Web.Http.WebHost.dll
 D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Net.Http.Formatting.xml
 D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Web.Http.xml
 D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Web.Http.WebHost.xml
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.SeedUsers.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddDrivingLicenseField.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddPhoneNumberToRegistration.resources

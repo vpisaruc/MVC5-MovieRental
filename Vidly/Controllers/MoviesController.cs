@@ -29,7 +29,13 @@ namespace Vidly.Controllers
         {
             //var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
 
-            return View();    
+            if (User.IsInRole(RoleName.CanManageMovies))
+            {
+                return View("List");
+            }
+
+            return View("ReadOnlyList");
+
         }
 
         public ActionResult Details(int id)
@@ -42,7 +48,7 @@ namespace Vidly.Controllers
             return View(movie);
         }
 
-
+        [Authorize(Roles=RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var movieGenre = _context.MovieGenres.ToList();
@@ -55,6 +61,7 @@ namespace Vidly.Controllers
             return View("MovieForm", viewModel);
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -73,6 +80,7 @@ namespace Vidly.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Save(Movie movie)
         {
             // валидатор нашей формы, он смотрит на параметры в [] базы данных,в нашем случае класса

@@ -72,3 +72,10 @@ D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddNewMovieTable
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.RenameColumnMoviesTable.resources
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddMoviesTable.resources
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.ChangesInMovieTable.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.MinorChanges.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Net.Http.Formatting.dll
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Web.Http.dll
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Web.Http.WebHost.dll
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Net.Http.Formatting.xml
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Web.Http.xml
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Web.Http.WebHost.xml

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Web.Mvc;
@@ -26,9 +27,9 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-            var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
+            //var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
 
-            return View(movies);    
+            return View();    
         }
 
         public ActionResult Details(int id)
@@ -45,7 +46,8 @@ namespace Vidly.Controllers
         public ActionResult New()
         {
             var movieGenre = _context.MovieGenres.ToList();
-            var viewModel = new MovieFormViewModel()
+            var movie = new Movie();
+            var viewModel = new MovieFormViewModel(movie)
             {
                 MovieGenres = movieGenre
             };
@@ -60,9 +62,8 @@ namespace Vidly.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-            var viewModel = new MovieFormViewModel()
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 MovieGenres = _context.MovieGenres.ToList()
             };
 
@@ -71,8 +72,21 @@ namespace Vidly.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            // валидатор нашей формы, он смотрит на параметры в [] базы данных,в нашем случае класса
+            // и если не удовлетворяет возвращает нас на эту же страницу с сообщениями об ошибке 
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    MovieGenres = _context.MovieGenres.ToList()
+                };
+
+                return View("MovieForm", viewModel);
+            }
+
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
@@ -81,6 +95,7 @@ namespace Vidly.Controllers
             else
             {
                 var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                // это очень симпатичный вариант решения, но он работает через раз
                 //Mapper.Map(movie, movieInDb);
                 movieInDb.Name = movie.Name;
                 movieInDb.MovieGenreId = movie.MovieGenreId;
@@ -88,7 +103,11 @@ namespace Vidly.Controllers
                 movieInDb.ReleaseDate = movie.ReleaseDate;
             }
 
-            _context.SaveChanges();
+            // этот блок необходим, чтобы отлавливать ошибки
+
+             _context.SaveChanges();
+            
+
 
             return RedirectToAction("Index", "Movies");
         }

@@ -12,12 +12,13 @@ namespace Vidly.Models
         public int Id { get; set; }
 
         // forbids nulls in Name column
-        [Required] 
+        [Required(ErrorMessage = "Please enter the Name!")] 
         // Limits characters in string 
         [StringLength(255)]
         public string Name { get; set; }
 
         [Display(Name = "Birth Date")]
+        [Min18YearsIfAMember]
         public DateTime BirthDate { get; set; }
 
         [Display(Name = "Subscription to News Letter")]

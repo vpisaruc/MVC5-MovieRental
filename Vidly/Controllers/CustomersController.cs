@@ -27,6 +27,7 @@ namespace Vidly.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
 
@@ -35,9 +36,22 @@ namespace Vidly.Controllers
 
         // HttpPost - мы декларируем, что это действие посылае только пост запросы
         [HttpPost]
+        // Валидация ключа безопасности для предотвращения хакерских атака
+        [ValidateAntiForgeryToken]
         // по хорошему надо создать класс CustommerUpdate в котором дать доступ к полям Name и BirthDate
         public ActionResult Save(Customer customer)
         {
+            // валидатор нашей формы, он смотрит на параметры в [] базы данных,в нашем случае класса
+            // и если не удовлетворяет возвращает нас на эту же страницу с сообщениями об ошибке 
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            }
             // если клиента нет в базе данных, то добавляем его в бд
             if (customer.Id == 0)
                 _context.Customers.Add(customer);
@@ -62,9 +76,10 @@ namespace Vidly.Controllers
         public ViewResult Index()
         {
             //Get all custommers from DB
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            //var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
-            return View(customers);
+            //return View(customers);
+            return View();
         }
 
         public ActionResult Details(int id)

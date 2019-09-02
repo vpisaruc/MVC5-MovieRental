@@ -82,3 +82,9 @@ D:\MyProjects\MVC5-MovieRental\Vidly\bin\System.Web.Http.WebHost.xml
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.SeedUsers.resources
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddDrivingLicenseField.resources
 D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.AddPhoneNumberToRegistration.resources
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\Glimpse.Ado.dll
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\Glimpse.AspNet.dll
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\Glimpse.Core.dll
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\Glimpse.EF6.dll
+D:\MyProjects\MVC5-MovieRental\Vidly\bin\Glimpse.Mvc5.dll
+D:\MyProjects\MVC5-MovieRental\Vidly\obj\Debug\Vidly.Migrations.MinorChangesInUserTable.resources
